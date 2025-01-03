@@ -80,7 +80,6 @@ This project is open-source and available under the MIT License.
 
 ## Author
 
-- **Your Name**
 - GitHub: [@4LPH7](https://github.com/4LPH7)
 
 Feel free to contribute or suggest improvements!
