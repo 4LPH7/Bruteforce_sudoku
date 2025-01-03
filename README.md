@@ -60,7 +60,8 @@ pip install customtkinter
 
 ## Screenshots
 
-*(Add screenshots of the GUI here if available)*
+![Screenshot 2025-01-03 153921](https://github.com/user-attachments/assets/6c116516-95d2-402f-98c3-b8ff6ac7ecd0)
+![Screenshot 2025-01-03 154426](https://github.com/user-attachments/assets/d998c01e-90d2-41b0-8993-0ae125d2a07e)
 
 ---
 
