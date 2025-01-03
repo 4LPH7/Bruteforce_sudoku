@@ -1,3 +1,4 @@
+
 # Sudoku Solver with GUI
 
 This project implements a **Sudoku Solver** with a graphical user interface (GUI) using Python and the `customtkinter` library. The solver uses a backtracking algorithm to solve the Sudoku puzzle and updates the GUI in real-time to show progress.
@@ -60,8 +61,10 @@ pip install customtkinter
 
 ## Screenshots
 
-![Screenshot 2025-01-03 153921](https://github.com/user-attachments/assets/6c116516-95d2-402f-98c3-b8ff6ac7ecd0)
-![Screenshot 2025-01-03 154426](https://github.com/user-attachments/assets/d998c01e-90d2-41b0-8993-0ae125d2a07e)
+<div style="display: flex;">
+  <img src="https://github.com/user-attachments/assets/6c116516-95d2-402f-98c3-b8ff6ac7ecd0" alt="Screenshot 1" width="300" style="margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/d998c01e-90d2-41b0-8993-0ae125d2a07e" alt="Screenshot 2" width="300">
+</div>
 
 ---
 
@@ -85,3 +88,4 @@ This project is open-source and available under the MIT License.
 
 Feel free to contribute or suggest improvements!
 
+---
