@@ -29,7 +29,7 @@ def find_empty_cell(board):
                 return i, j
     return None
 
-def solve_sudoku_gui(board, grid_labels):
+def solve_sudoku_gui(board, grid_labels, app):
     """Solve the Sudoku board using backtracking and update GUI."""
     empty_cell = find_empty_cell(board)
     if not empty_cell:
@@ -45,13 +45,16 @@ def solve_sudoku_gui(board, grid_labels):
         if is_valid(board, row, col, num):
             board[row][col] = num
             update_grid(grid_labels, board)
+            app.update_idletasks()  # Update the GUI
+            time.sleep(0.01)  # Add a small delay for visualization
 
-            if solve_sudoku_gui(board, grid_labels):
+            if solve_sudoku_gui(board, grid_labels, app):
                 return True
 
             # Undo the move
             board[row][col] = 0
             update_grid(grid_labels, board)
+            app.update_idletasks()  # Update the GUI
 
     return False
 
@@ -64,8 +67,6 @@ def update_grid(grid_labels, board):
                 grid_labels[i][j].configure(text="", text_color="gray")
             else:
                 grid_labels[i][j].configure(text=str(num), text_color="blue")
-
-    grid_labels[0][0].update_idletasks()
 
 def generate_random_sudoku():
     """Generate a random Sudoku puzzle."""
@@ -91,7 +92,8 @@ def main():
     for i in range(9):
         row_labels = []
         for j in range(9):
-            label = ctk.CTkLabel(frame, text="", width=50, height=50, corner_radius=5, font=("Arial", 18), fg_color="lightgray")
+            bg_color = "gray75" if (i // 3 + j // 3) % 2 == 0 else "gray90"
+            label = ctk.CTkLabel(frame, text="", width=50, height=50, corner_radius=5, font=("Arial", 18), fg_color=bg_color)
             label.grid(row=i, column=j, padx=2, pady=2)
             row_labels.append(label)
         grid_labels.append(row_labels)
@@ -100,7 +102,7 @@ def main():
 
     def solve():
         start_time = time.time()
-        if solve_sudoku_gui(sudoku_board, grid_labels):
+        if solve_sudoku_gui(sudoku_board, grid_labels, app):
             end_time = time.time()
             status_label.configure(text=f"Sudoku Solved in {end_time - start_time:.2f} seconds!", text_color="green")
         else:
@@ -109,7 +111,7 @@ def main():
     solve_button = ctk.CTkButton(app, text="Solve", command=solve, font=("Arial", 16))
     solve_button.pack(pady=10)
 
-    status_label = ctk.CTkLabel(app, text="Solving Sudoku...", font=("Arial", 14))
+    status_label = ctk.CTkLabel(app, text="Click 'Solve' to start solving the Sudoku.", font=("Arial", 14))
     status_label.pack()
 
     app.mainloop()
